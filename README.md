@@ -20,9 +20,31 @@ An accessible, audio-first tooth brushing guide for children of all ages, includ
 - **Backend**: FastAPI (Python), SQLite
 - **Deployment**: Vercel (frontend), Railway/Fly.io (backend)
 
-## Quick Start
+## Quick Start with Docker (Recommended)
+
+Run the entire application with a single command:
+
+```bash
+docker-compose up --build
+```
+
+- Frontend: [http://localhost:3000](http://localhost:3000)
+- Backend API: [http://localhost:8000](http://localhost:8000)
+
+To run in background:
+```bash
+docker-compose up -d --build
+```
+
+To stop:
+```bash
+docker-compose down
+```
+
+## Manual Setup
 
 ### Frontend
+
 
 ```bash
 cd frontend
