@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
 interface TalkingAvatarProps {
@@ -9,7 +9,7 @@ interface TalkingAvatarProps {
 }
 
 export function TalkingAvatar({ isSpeaking, avatarId }: TalkingAvatarProps) {
-    const mouthVariants = {
+    const mouthVariants: Variants = {
         idle: { scaleY: 0.1, transition: { duration: 0.5 } },
         speaking: {
             scaleY: [0.1, 0.8, 0.2, 0.6, 0.1],
@@ -20,6 +20,7 @@ export function TalkingAvatar({ isSpeaking, avatarId }: TalkingAvatarProps) {
             }
         }
     };
+
 
     const blinkVariants = {
         open: { scaleY: 1 },
