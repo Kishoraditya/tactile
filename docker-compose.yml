@@ -3,8 +3,9 @@ version: '3.8'
 services:
   frontend:
     build:
-      context: ./frontend
+      context: .
       dockerfile: Dockerfile
+      target: frontend
     ports:
       - "3000:3000"
     environment:
@@ -15,15 +16,16 @@ services:
 
   backend:
     build:
-      context: ./backend
+      context: .
       dockerfile: Dockerfile
+      target: backend
     ports:
       - "8000:8000"
     environment:
       - DATABASE_URL=sqlite:///./toothbuddy.db
       - SECRET_KEY=your-secret-key-change-in-production
     volumes:
-      - backend_data:/app/data
+      - backend_data:/app/backend/data
     restart: unless-stopped
 
 volumes:

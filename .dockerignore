@@ -1,0 +1,29 @@
+# Git
+.git
+.gitignore
+
+# Documentation
+docs/
+*.md
+!README.md
+
+# IDE
+.vscode
+.idea
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Frontend excludes
+frontend/node_modules
+frontend/.next
+frontend/out
+frontend/.env*
+
+# Backend excludes
+backend/__pycache__
+backend/*.pyc
+backend/venv
+backend/.env*
+backend/*.db
