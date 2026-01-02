@@ -1,0 +1,38 @@
+{
+  "name": "luna_2",
+  "duration": 5.0,
+  "tracks": [
+    {
+      "name": "right_arm.rotation",
+      "type": "number",
+      "times": [
+        0.0,
+        1.5,
+        2.5,
+        3.5,
+        5.0
+      ],
+      "values": [
+        30,
+        60,
+        45,
+        20,
+        30
+      ]
+    },
+    {
+      "name": "toothbrush.visible",
+      "type": "number",
+      "times": [
+        0.0,
+        2.5,
+        5.0
+      ],
+      "values": [
+        0,
+        1,
+        1
+      ]
+    }
+  ]
+}

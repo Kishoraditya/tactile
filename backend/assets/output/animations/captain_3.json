@@ -1,0 +1,38 @@
+{
+  "name": "captain_3",
+  "duration": 5.0,
+  "tracks": [
+    {
+      "name": "body.scale",
+      "type": "number",
+      "times": [
+        0.0,
+        2.5,
+        5.0
+      ],
+      "values": [
+        1.0,
+        1.02,
+        1.0
+      ]
+    },
+    {
+      "name": "eyes.blink",
+      "type": "number",
+      "times": [
+        0.0,
+        2.25,
+        2.5,
+        2.75,
+        5.0
+      ],
+      "values": [
+        0,
+        0,
+        1,
+        0,
+        0
+      ]
+    }
+  ]
+}

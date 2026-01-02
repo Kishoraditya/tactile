@@ -1,0 +1,37 @@
+{
+  "name": "luna_6",
+  "duration": 15.0,
+  "tracks": [
+    {
+      "name": "toothbrush.position",
+      "type": "number",
+      "times": [
+        0.0,
+        7.5,
+        15.0
+      ],
+      "values": [
+        60,
+        30,
+        60,
+        45,
+        60,
+        30
+      ]
+    },
+    {
+      "name": "right_arm.rotation",
+      "type": "number",
+      "times": [
+        0.0,
+        7.5,
+        15.0
+      ],
+      "values": [
+        -45,
+        -55,
+        -45
+      ]
+    }
+  ]
+}

@@ -1,0 +1,181 @@
+{
+  "version": "1.0",
+  "format": "threejs",
+  "animations": {
+    "luna_1": {
+      "file": "luna_1.json",
+      "duration": 5.0,
+      "loop": false
+    },
+    "luna_2": {
+      "file": "luna_2.json",
+      "duration": 5.0,
+      "loop": false
+    },
+    "luna_3": {
+      "file": "luna_3.json",
+      "duration": 8.0,
+      "loop": true
+    },
+    "luna_4": {
+      "file": "luna_4.json",
+      "duration": 5.0,
+      "loop": false
+    },
+    "luna_5": {
+      "file": "luna_5.json",
+      "duration": 15.0,
+      "loop": false
+    },
+    "luna_6": {
+      "file": "luna_6.json",
+      "duration": 15.0,
+      "loop": true
+    },
+    "luna_7": {
+      "file": "luna_7.json",
+      "duration": 15.0,
+      "loop": true
+    },
+    "luna_8": {
+      "file": "luna_8.json",
+      "duration": 15.0,
+      "loop": true
+    },
+    "luna_9": {
+      "file": "luna_9.json",
+      "duration": 10.0,
+      "loop": false
+    },
+    "luna_10": {
+      "file": "luna_10.json",
+      "duration": 8.0,
+      "loop": false
+    },
+    "luna_11": {
+      "file": "luna_11.json",
+      "duration": 8.0,
+      "loop": true
+    },
+    "luna_12": {
+      "file": "luna_12.json",
+      "duration": 5.0,
+      "loop": false
+    },
+    "captain_1": {
+      "file": "captain_1.json",
+      "duration": 5.0,
+      "loop": false
+    },
+    "captain_2": {
+      "file": "captain_2.json",
+      "duration": 8.0,
+      "loop": false
+    },
+    "captain_3": {
+      "file": "captain_3.json",
+      "duration": 5.0,
+      "loop": true
+    },
+    "captain_4": {
+      "file": "captain_4.json",
+      "duration": 20.0,
+      "loop": true
+    },
+    "captain_5": {
+      "file": "captain_5.json",
+      "duration": 20.0,
+      "loop": true
+    },
+    "captain_6": {
+      "file": "captain_6.json",
+      "duration": 20.0,
+      "loop": true
+    },
+    "captain_7": {
+      "file": "captain_7.json",
+      "duration": 20.0,
+      "loop": true
+    },
+    "captain_8": {
+      "file": "captain_8.json",
+      "duration": 15.0,
+      "loop": true
+    },
+    "captain_9": {
+      "file": "captain_9.json",
+      "duration": 10.0,
+      "loop": false
+    },
+    "captain_10": {
+      "file": "captain_10.json",
+      "duration": 5.0,
+      "loop": false
+    },
+    "captain_11": {
+      "file": "captain_11.json",
+      "duration": 8.0,
+      "loop": false
+    },
+    "captain_12": {
+      "file": "captain_12.json",
+      "duration": 5.0,
+      "loop": false
+    },
+    "dr_bright_1": {
+      "file": "dr_bright_1.json",
+      "duration": 5.0,
+      "loop": false
+    },
+    "dr_bright_2": {
+      "file": "dr_bright_2.json",
+      "duration": 8.0,
+      "loop": false
+    },
+    "dr_bright_3": {
+      "file": "dr_bright_3.json",
+      "duration": 5.0,
+      "loop": false
+    },
+    "dr_bright_4": {
+      "file": "dr_bright_4.json",
+      "duration": 25.0,
+      "loop": true
+    },
+    "dr_bright_5": {
+      "file": "dr_bright_5.json",
+      "duration": 25.0,
+      "loop": true
+    },
+    "dr_bright_6": {
+      "file": "dr_bright_6.json",
+      "duration": 25.0,
+      "loop": true
+    },
+    "dr_bright_7": {
+      "file": "dr_bright_7.json",
+      "duration": 20.0,
+      "loop": true
+    },
+    "dr_bright_8": {
+      "file": "dr_bright_8.json",
+      "duration": 10.0,
+      "loop": true
+    },
+    "dr_bright_9": {
+      "file": "dr_bright_9.json",
+      "duration": 5.0,
+      "loop": true
+    },
+    "dr_bright_10": {
+      "file": "dr_bright_10.json",
+      "duration": 8.0,
+      "loop": false
+    },
+    "dr_bright_11": {
+      "file": "dr_bright_11.json",
+      "duration": 5.0,
+      "loop": false
+    }
+  }
+}

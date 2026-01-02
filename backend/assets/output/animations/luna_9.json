@@ -1,0 +1,38 @@
+{
+  "name": "luna_9",
+  "duration": 10.0,
+  "tracks": [
+    {
+      "name": "tongue.out",
+      "type": "number",
+      "times": [
+        0.0,
+        2.0,
+        8.0,
+        10.0
+      ],
+      "values": [
+        0,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "name": "mouth.open",
+      "type": "number",
+      "times": [
+        0.0,
+        2.0,
+        8.0,
+        10.0
+      ],
+      "values": [
+        0,
+        0.5,
+        0.5,
+        0
+      ]
+    }
+  ]
+}

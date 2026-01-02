@@ -1,0 +1,54 @@
+{
+  "name": "luna_5",
+  "duration": 15.0,
+  "tracks": [
+    {
+      "name": "mouth.open",
+      "type": "number",
+      "times": [
+        0.0,
+        4.5,
+        10.5,
+        15.0
+      ],
+      "values": [
+        0,
+        1.0,
+        1.0,
+        0.3
+      ]
+    },
+    {
+      "name": "head.rotation",
+      "type": "number",
+      "times": [
+        0.0,
+        4.5,
+        10.5,
+        15.0
+      ],
+      "values": [
+        0,
+        -10,
+        -10,
+        0
+      ]
+    },
+    {
+      "name": "left_arm.rotation",
+      "type": "number",
+      "times": [
+        0.0,
+        4.5,
+        10.5,
+        15.0
+      ],
+      "values": [
+        -30,
+        -120,
+        -120,
+        -30
+      ]
+    }
+  ]
+}

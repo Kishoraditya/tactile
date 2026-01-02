@@ -1,0 +1,45 @@
+{
+  "name": "captain_10",
+  "duration": 5.0,
+  "tracks": [
+    {
+      "name": "body.rotation",
+      "type": "number",
+      "times": [
+        0.0,
+        1.5,
+        2.5,
+        5.0
+      ],
+      "values": [
+        0,
+        20,
+        25,
+        0
+      ]
+    },
+    {
+      "name": "mouth.open",
+      "type": "number",
+      "times": [
+        0.0,
+        2.0,
+        2.5,
+        3.5,
+        5.0
+      ],
+      "values": [
+        0,
+        "puff",
+        0.3,
+        "o",
+        0.8,
+        "o",
+        0.2,
+        "normal",
+        0,
+        "smile"
+      ]
+    }
+  ]
+}

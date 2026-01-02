@@ -1,0 +1,37 @@
+{
+  "name": "dr_bright_4",
+  "duration": 25.0,
+  "tracks": [
+    {
+      "name": "toothbrush.position",
+      "type": "number",
+      "times": [
+        0.0,
+        12.5,
+        25.0
+      ],
+      "values": [
+        60,
+        50,
+        60,
+        65,
+        60,
+        50
+      ]
+    },
+    {
+      "name": "right_arm.rotation",
+      "type": "number",
+      "times": [
+        0.0,
+        12.5,
+        25.0
+      ],
+      "values": [
+        -45,
+        -55,
+        -45
+      ]
+    }
+  ]
+}

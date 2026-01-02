@@ -43,6 +43,7 @@ function ToothFace({ isSpeaking, animationState, avatarId }: AvatarProps) {
         if (animationState === 'openMouth') mouthOpen = 0.6;
         if (animationState === 'spitting') mouthOpen = 0.4;
         if (animationState === 'rinsing') mouthOpen = 0.25;
+        if (animationState === 'celebrate') mouthOpen = 0.4; // Big smile/open
 
         mouthRef.current.scale.y = THREE.MathUtils.lerp(mouthRef.current.scale.y, 1 + mouthOpen, 0.15);
 
@@ -51,6 +52,16 @@ function ToothFace({ isSpeaking, animationState, avatarId }: AvatarProps) {
             const tongueOut = animationState === 'tongueOut' ? 0.12 : 0;
             tongueRef.current.position.z = THREE.MathUtils.lerp(tongueRef.current.position.z, tongueOut, 0.1);
         }
+
+        // Celebrate/Nod motion
+        if (animationState === 'celebrate') {
+            // Jump for joy
+            group.current.position.y = Math.sin(t * 10) * 0.1;
+        } else if (animationState === 'thumbsUp') {
+            // Nod
+            group.current.rotation.x = Math.sin(t * 8) * 0.1;
+        }
+
     });
 
     return (

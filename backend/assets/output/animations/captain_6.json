@@ -1,0 +1,37 @@
+{
+  "name": "captain_6",
+  "duration": 20.0,
+  "tracks": [
+    {
+      "name": "toothbrush.position",
+      "type": "number",
+      "times": [
+        0.0,
+        10.0,
+        20.0
+      ],
+      "values": [
+        60,
+        50,
+        60,
+        65,
+        60,
+        50
+      ]
+    },
+    {
+      "name": "right_arm.rotation",
+      "type": "number",
+      "times": [
+        0.0,
+        10.0,
+        20.0
+      ],
+      "values": [
+        -45,
+        -55,
+        -45
+      ]
+    }
+  ]
+}

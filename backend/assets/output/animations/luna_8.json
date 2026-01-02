@@ -1,0 +1,38 @@
+{
+  "name": "luna_8",
+  "duration": 15.0,
+  "tracks": [
+    {
+      "name": "body.scale",
+      "type": "number",
+      "times": [
+        0.0,
+        7.5,
+        15.0
+      ],
+      "values": [
+        1.0,
+        1.02,
+        1.0
+      ]
+    },
+    {
+      "name": "eyes.blink",
+      "type": "number",
+      "times": [
+        0.0,
+        6.75,
+        7.5,
+        8.25,
+        15.0
+      ],
+      "values": [
+        0,
+        0,
+        1,
+        0,
+        0
+      ]
+    }
+  ]
+}

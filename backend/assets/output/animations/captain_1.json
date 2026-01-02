@@ -1,0 +1,44 @@
+{
+  "name": "captain_1",
+  "duration": 5.0,
+  "tracks": [
+    {
+      "name": "right_arm.rotation",
+      "type": "number",
+      "times": [
+        0.0,
+        1.0,
+        1.75,
+        2.5,
+        3.25,
+        4.0,
+        5.0
+      ],
+      "values": [
+        30,
+        -120,
+        -100,
+        -120,
+        -100,
+        -120,
+        30
+      ]
+    },
+    {
+      "name": "mouth.smile",
+      "type": "number",
+      "times": [
+        0.0,
+        1.0,
+        4.5,
+        5.0
+      ],
+      "values": [
+        0.5,
+        1.0,
+        1.0,
+        0.5
+      ]
+    }
+  ]
+}

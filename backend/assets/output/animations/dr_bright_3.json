@@ -1,0 +1,60 @@
+{
+  "name": "dr_bright_3",
+  "duration": 5.0,
+  "tracks": [
+    {
+      "name": "right_arm.rotation",
+      "type": "number",
+      "times": [
+        0.0,
+        1.0,
+        4.0,
+        5.0
+      ],
+      "values": [
+        30,
+        0,
+        0,
+        30
+      ]
+    },
+    {
+      "name": "left_arm.rotation",
+      "type": "number",
+      "times": [
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0,
+        5.0
+      ],
+      "values": [
+        -30,
+        -20,
+        -10,
+        -15,
+        -30,
+        -30
+      ]
+    },
+    {
+      "name": "paste_blob.scale",
+      "type": "number",
+      "times": [
+        0.0,
+        1.5,
+        2.5,
+        3.5,
+        5.0
+      ],
+      "values": [
+        0,
+        0,
+        0.5,
+        1,
+        1
+      ]
+    }
+  ]
+}

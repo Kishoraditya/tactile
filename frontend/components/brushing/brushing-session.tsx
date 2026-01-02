@@ -192,6 +192,11 @@ export function BrushingSession({ ageGroup, onComplete }: { ageGroup: AgeGroup; 
         }
     }, [hasStarted, avatar, speak, nextStep]);
 
+    // [voiceError, setVoiceError] must be added to state first! 
+    // Wait, I need to add state before this useEffect.
+    // I will split this into two calls: one for state, one for useEffect.
+    // Making this tool call strictly ONLY for the useEffect replacement.
+
     // Voice recognition (runs once, not on every state change)
     useEffect(() => {
         const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
@@ -201,11 +206,24 @@ export function BrushingSession({ ageGroup, onComplete }: { ageGroup: AgeGroup; 
         recognition.continuous = true;
         recognition.interimResults = false;
 
-        recognition.onstart = () => setIsListening(true);
+        recognition.onstart = () => { if (isMountedRef.current) setIsListening(true); };
+
+        recognition.onerror = (event: any) => {
+            if (event.error === 'aborted') return;
+            console.error("Session Voice Error:", event.error);
+            if (isMountedRef.current && event.error === 'not-allowed') {
+                // handle permission error
+            }
+        };
+
         recognition.onend = () => {
-            setIsListening(false);
             if (isMountedRef.current) {
-                try { recognition.start(); } catch (e) { }
+                setIsListening(false);
+                setTimeout(() => {
+                    if (isMountedRef.current) {
+                        try { recognition.start(); } catch (e) { }
+                    }
+                }, 1000); // Increased stability delay
             }
         };
 
@@ -225,7 +243,12 @@ export function BrushingSession({ ageGroup, onComplete }: { ageGroup: AgeGroup; 
             }
         };
 
-        try { recognition.start(); } catch (e) { }
+        // Delay start to prevent mount race conditions
+        setTimeout(() => {
+            if (isMountedRef.current) {
+                try { recognition.start(); } catch (e) { }
+            }
+        }, 1000);
 
         return () => { recognition.stop(); };
     }, []); // Empty deps - run once

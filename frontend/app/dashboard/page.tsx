@@ -12,7 +12,11 @@ import { Mic } from 'lucide-react';
 export default function DashboardPage() {
     const router = useRouter();
     const [isListening, setIsListening] = useState(false);
+    const [voiceError, setVoiceError] = useState<string | null>(null);
     const recognitionRef = useRef<any>(null);
+
+    const retryCountRef = useRef(0);
+    const maxRetries = 5;
 
     useEffect(() => {
         // Welcome message
@@ -24,43 +28,95 @@ export default function DashboardPage() {
             const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
             if (!SpeechRecognition || !isMounted) return;
 
-            recognition = new SpeechRecognition();
-            recognition.continuous = true;
-            recognition.lang = 'en-US';
-            recognition.interimResults = false;
+            // Circuit breaker
+            if (retryCountRef.current >= maxRetries) {
+                console.warn("Stopping voice recognition due to excessive errors.");
+                setVoiceError("Voice disabled due to connection issues.");
+                return;
+            }
 
-            recognition.onstart = () => { if (isMounted) setIsListening(true); };
-            recognition.onend = () => {
-                if (isMounted) {
-                    setIsListening(false);
-                    // Restart only if still mounted
-                    try { recognition.start(); } catch (e) { }
-                }
-            };
+            try {
+                recognition = new SpeechRecognition();
+                recognition.continuous = true;
+                recognition.lang = 'en-US';
+                recognition.interimResults = false;
 
-            recognition.onresult = (event: any) => {
-                if (!isMounted) return;
-                const transcript = event.results[event.results.length - 1][0].transcript.toLowerCase();
-                console.log("Dashboard Cmd:", transcript);
+                recognition.onstart = () => {
+                    if (isMounted) {
+                        setIsListening(true);
+                        setVoiceError(null);
+                        // Reset retries on successful connection duration? 
+                        // Simplified: just reset if we stay connected for 5s
+                        setTimeout(() => { if (isMounted && isListening) retryCountRef.current = 0; }, 5000);
+                    }
+                };
 
-                if (transcript.includes('luna')) {
-                    router.push('/dashboard/session/1-4');
-                } else if (transcript.includes('captain') || transcript.includes('sparkle')) {
-                    router.push('/dashboard/session/5-11');
-                } else if (transcript.includes('doctor') || transcript.includes('bright')) {
-                    router.push('/dashboard/session/12-18');
-                }
-            };
+                recognition.onerror = (event: any) => {
+                    // console.log("Voice error type:", typeof event.error, event.error);
+                    const errorMsg = String(event.error);
+                    if (errorMsg.includes('aborted') || errorMsg.includes('no-speech')) {
+                        return;
+                    }
+                    console.error("Voice Error:", event.error);
+                    if (isMounted) {
+                        if (errorMsg === 'not-allowed' || errorMsg === 'service-not-allowed') {
+                            setVoiceError("Microphone access denied.");
+                            retryCountRef.current = maxRetries; // meaningful stop
+                            setIsListening(false);
+                        } else {
+                            retryCountRef.current += 1;
+                        }
+                    }
+                };
 
-            try { recognition.start(); } catch (e) { }
+                recognition.onend = () => {
+                    if (isMounted) {
+                        setIsListening(false);
+                        // Restart with backoff
+                        setTimeout(() => {
+                            if (isMounted && recognition && !recognition.aborted) {
+                                if (retryCountRef.current < maxRetries) {
+                                    startRecognition(); // Re-create instance to be clean
+                                }
+                            }
+                        }, 1000);
+                    }
+                };
+
+                recognition.onresult = (event: any) => {
+                    if (!isMounted) return;
+                    retryCountRef.current = 0; // Success!
+                    const transcript = event.results[event.results.length - 1][0].transcript.toLowerCase();
+                    console.log("Dashboard Cmd:", transcript);
+
+                    if (transcript.includes('luna')) {
+                        router.push('/dashboard/session/1-4');
+                    } else if (transcript.includes('captain') || transcript.includes('sparkle')) {
+                        router.push('/dashboard/session/5-11');
+                    } else if (transcript.includes('doctor') || transcript.includes('bright')) {
+                        router.push('/dashboard/session/12-18');
+                    }
+                };
+
+                recognition.start();
+
+            } catch (e) {
+                console.error("Recognition start failed:", e);
+                retryCountRef.current += 1;
+            }
         };
 
-        startRecognition();
+        // Initial start delay
+        const timer = setTimeout(startRecognition, 1000);
 
         return () => {
             isMounted = false;
+            clearTimeout(timer);
             tts.cancel();
-            if (recognition) recognition.stop();
+            if (recognition) {
+                recognition.aborted = true;
+                recognition.stop();
+            }
         };
     }, [router]);
 
@@ -89,7 +145,10 @@ export default function DashboardPage() {
                     <h1 className="text-3xl font-bold mb-2">Who is brushing today?</h1>
                     <p className="text-muted-foreground">Select your buddy to start, or say their name.</p>
                 </div>
-                {isListening && <div className="flex items-center gap-2 text-red-500 animate-pulse font-medium"><Mic className="w-5 h-5" /> Listening...</div>}
+                <div className="flex flex-col items-end gap-1">
+                    {isListening && <div className="flex items-center gap-2 text-green-600 animate-pulse font-medium"><Mic className="w-5 h-5" /> Listening...</div>}
+                    {voiceError && <div className="text-xs text-red-500 font-semibold bg-red-50 px-2 py-1 rounded border border-red-200">{voiceError}</div>}
+                </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -108,9 +167,10 @@ export default function DashboardPage() {
                             <div className={`w-32 h-32 rounded-full flex items-center justify-center text-6xl shadow-inner bg-white`}>
                                 {avatar.avatarId === 'luna' ? '🧚‍♀️' : avatar.avatarId === 'captain' ? '🦸‍♂️' : '👨‍⚕️'}
                             </div>
-                            <Button className={`w-full text-lg h-12 ${avatar.themeColor} hover:brightness-110 text-white`}>
+                            <Button className={`w-full text-lg h-12 ${avatar.themeColor} hover:brightness-110 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300`}>
                                 Start with {avatar.name.split(' ')[0]}
                             </Button>
+
                         </CardContent>
                     </Card>
                 ))}
@@ -136,9 +196,9 @@ export default function DashboardPage() {
             </div>
 
             <div className="flex gap-4 justify-center">
-                <Link href="/settings"><Button variant="outline">⚙️ Settings</Button></Link>
+                <Link href="/dashboard/settings"><Button variant="outline">⚙️ Settings</Button></Link>
                 <Link href="/profile"><Button variant="outline">👤 Profile</Button></Link>
             </div>
-        </div>
+        </div >
     );
 }

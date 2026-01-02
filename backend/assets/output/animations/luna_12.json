@@ -1,0 +1,72 @@
+{
+  "name": "luna_12",
+  "duration": 5.0,
+  "tracks": [
+    {
+      "name": "body.position",
+      "type": "number",
+      "times": [
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0,
+        5.0
+      ],
+      "values": [
+        0,
+        -20,
+        30,
+        20,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "left_arm.rotation",
+      "type": "number",
+      "times": [
+        0.0,
+        1.5,
+        4.0,
+        5.0
+      ],
+      "values": [
+        -30,
+        -150,
+        -150,
+        -30
+      ]
+    },
+    {
+      "name": "right_arm.rotation",
+      "type": "number",
+      "times": [
+        0.0,
+        1.5,
+        4.0,
+        5.0
+      ],
+      "values": [
+        30,
+        150,
+        150,
+        30
+      ]
+    },
+    {
+      "name": "mouth.smile",
+      "type": "number",
+      "times": [
+        0.0,
+        1.5,
+        5.0
+      ],
+      "values": [
+        0.5,
+        1.0,
+        1.0
+      ]
+    }
+  ]
+}

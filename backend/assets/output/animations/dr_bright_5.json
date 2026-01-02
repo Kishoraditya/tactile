@@ -1,0 +1,38 @@
+{
+  "name": "dr_bright_5",
+  "duration": 25.0,
+  "tracks": [
+    {
+      "name": "body.scale",
+      "type": "number",
+      "times": [
+        0.0,
+        12.5,
+        25.0
+      ],
+      "values": [
+        1.0,
+        1.02,
+        1.0
+      ]
+    },
+    {
+      "name": "eyes.blink",
+      "type": "number",
+      "times": [
+        0.0,
+        11.25,
+        12.5,
+        13.750000000000002,
+        25.0
+      ],
+      "values": [
+        0,
+        0,
+        1,
+        0,
+        0
+      ]
+    }
+  ]
+}

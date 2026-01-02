@@ -1,0 +1,38 @@
+{
+  "name": "dr_bright_7",
+  "duration": 20.0,
+  "tracks": [
+    {
+      "name": "body.scale",
+      "type": "number",
+      "times": [
+        0.0,
+        10.0,
+        20.0
+      ],
+      "values": [
+        1.0,
+        1.02,
+        1.0
+      ]
+    },
+    {
+      "name": "eyes.blink",
+      "type": "number",
+      "times": [
+        0.0,
+        9.0,
+        10.0,
+        11.0,
+        20.0
+      ],
+      "values": [
+        0,
+        0,
+        1,
+        0,
+        0
+      ]
+    }
+  ]
+}

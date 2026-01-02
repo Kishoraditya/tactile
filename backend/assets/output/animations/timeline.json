@@ -1,0 +1,2343 @@
+{
+  "characters": {
+    "luna": {
+      "scenes": [
+        {
+          "id": "luna_1",
+          "step": "**Time Greeting**",
+          "dialogue": "*Morning*: \"Good morning sunshine! It's tooth time!\" / *Evening*: \"Sleepy time is near! Let's sparkle those teeth!\"",
+          "start_time": 0,
+          "duration": 5.0,
+          "animation": {
+            "name": "luna_1",
+            "duration": 5.0,
+            "tracks": [
+              {
+                "name": "right_arm.rotation",
+                "type": "number",
+                "times": [
+                  0.0,
+                  1.0,
+                  1.75,
+                  2.5,
+                  3.25,
+                  4.0,
+                  5.0
+                ],
+                "values": [
+                  30,
+                  -120,
+                  -100,
+                  -120,
+                  -100,
+                  -120,
+                  30
+                ]
+              },
+              {
+                "name": "mouth.smile",
+                "type": "number",
+                "times": [
+                  0.0,
+                  1.0,
+                  4.5,
+                  5.0
+                ],
+                "values": [
+                  0.5,
+                  1.0,
+                  1.0,
+                  0.5
+                ]
+              }
+            ]
+          },
+          "actions": {
+            "primary_action": "greeting",
+            "sub_actions": [],
+            "body_parts": [],
+            "motion_type": "static",
+            "emotion": "happy",
+            "duration_hint": "medium",
+            "props": [],
+            "mouth_sync": true,
+            "special_effects": []
+          }
+        },
+        {
+          "id": "luna_2",
+          "step": "**Pick Up Brush**",
+          "dialogue": "\"Pick up your magic toothbrush! Hold it gently.\"",
+          "start_time": 5.0,
+          "duration": 5.0,
+          "animation": {
+            "name": "luna_2",
+            "duration": 5.0,
+            "tracks": [
+              {
+                "name": "right_arm.rotation",
+                "type": "number",
+                "times": [
+                  0.0,
+                  1.5,
+                  2.5,
+                  3.5,
+                  5.0
+                ],
+                "values": [
+                  30,
+                  60,
+                  45,
+                  20,
+                  30
+                ]
+              },
+              {
+                "name": "toothbrush.visible",
+                "type": "number",
+                "times": [
+                  0.0,
+                  2.5,
+                  5.0
+                ],
+                "values": [
+                  0,
+                  1,
+                  1
+                ]
+              }
+            ]
+          },
+          "actions": {
+            "primary_action": "pickup",
+            "sub_actions": [],
+            "body_parts": [],
+            "motion_type": "static",
+            "emotion": "neutral",
+            "duration_hint": "medium",
+            "props": [
+              "toothbrush"
+            ],
+            "mouth_sync": true,
+            "special_effects": []
+          }
+        },
+        {
+          "id": "luna_3",
+          "step": "**First Rinse**",
+          "dialogue": "\"Take a tiny sip of water. Swish swish swish! Spit it out.\" *(Avatar swishes water)*",
+          "start_time": 10.0,
+          "duration": 8.0,
+          "animation": {
+            "name": "luna_3",
+            "duration": 8.0,
+            "tracks": [
+              {
+                "name": "mouth.puff",
+                "type": "number",
+                "times": [
+                  0.0,
+                  2.0,
+                  4.0,
+                  6.0,
+                  8.0
+                ],
+                "values": [
+                  0.8,
+                  -10,
+                  1.0,
+                  10,
+                  0.8,
+                  -10,
+                  1.0,
+                  10,
+                  0.8,
+                  -10
+                ]
+              }
+            ]
+          },
+          "actions": {
+            "primary_action": "swishing",
+            "sub_actions": [],
+            "body_parts": [
+              "cheeks",
+              "mouth"
+            ],
+            "motion_type": "static",
+            "emotion": "neutral",
+            "duration_hint": "medium",
+            "props": [],
+            "mouth_sync": true,
+            "special_effects": []
+          }
+        },
+        {
+          "id": "luna_4",
+          "step": "**Apply Paste**",
+          "dialogue": "\"Just a teeny tiny bit of paste. Like a grain of rice!\" *(Avatar points to brush)*",
+          "start_time": 18.0,
+          "duration": 5.0,
+          "animation": {
+            "name": "luna_4",
+            "duration": 5.0,
+            "tracks": [
+              {
+                "name": "right_arm.rotation",
+                "type": "number",
+                "times": [
+                  0.0,
+                  1.0,
+                  4.0,
+                  5.0
+                ],
+                "values": [
+                  30,
+                  0,
+                  0,
+                  30
+                ]
+              },
+              {
+                "name": "left_arm.rotation",
+                "type": "number",
+                "times": [
+                  0.0,
+                  1.0,
+                  2.0,
+                  3.0,
+                  4.0,
+                  5.0
+                ],
+                "values": [
+                  -30,
+                  -20,
+                  -10,
+                  -15,
+                  -30,
+                  -30
+                ]
+              },
+              {
+                "name": "paste_blob.scale",
+                "type": "number",
+                "times": [
+                  0.0,
+                  1.5,
+                  2.5,
+                  3.5,
+                  5.0
+                ],
+                "values": [
+                  0,
+                  0,
+                  0.5,
+                  1,
+                  1
+                ]
+              }
+            ]
+          },
+          "actions": {
+            "primary_action": "applying_paste",
+            "sub_actions": [],
+            "body_parts": [],
+            "motion_type": "static",
+            "emotion": "neutral",
+            "duration_hint": "medium",
+            "props": [
+              "toothpaste",
+              "toothbrush"
+            ],
+            "mouth_sync": true,
+            "special_effects": []
+          }
+        },
+        {
+          "id": "luna_5",
+          "step": "**Open Wide**",
+          "dialogue": "\"Can you ROAR like a lion? ROAAR! Open wide!\" *(Avatar opens mouth wide)*",
+          "start_time": 23.0,
+          "duration": 15.0,
+          "animation": {
+            "name": "luna_5",
+            "duration": 15.0,
+            "tracks": [
+              {
+                "name": "mouth.open",
+                "type": "number",
+                "times": [
+                  0.0,
+                  4.5,
+                  10.5,
+                  15.0
+                ],
+                "values": [
+                  0,
+                  1.0,
+                  1.0,
+                  0.3
+                ]
+              },
+              {
+                "name": "head.rotation",
+                "type": "number",
+                "times": [
+                  0.0,
+                  4.5,
+                  10.5,
+                  15.0
+                ],
+                "values": [
+                  0,
+                  -10,
+                  -10,
+                  0
+                ]
+              },
+              {
+                "name": "left_arm.rotation",
+                "type": "number",
+                "times": [
+                  0.0,
+                  4.5,
+                  10.5,
+                  15.0
+                ],
+                "values": [
+                  -30,
+                  -120,
+                  -120,
+                  -30
+                ]
+              }
+            ]
+          },
+          "actions": {
+            "primary_action": "openMouth",
+            "sub_actions": [],
+            "body_parts": [],
+            "motion_type": "static",
+            "emotion": "playful",
+            "duration_hint": "medium",
+            "props": [],
+            "mouth_sync": true,
+            "special_effects": []
+          }
+        },
+        {
+          "id": "luna_6",
+          "step": "**Bottom Teeth**",
+          "dialogue": "\"Wiggle wiggle on the bottom! *Fun fact*: Baby teeth help you eat yummy food!\" *(Thumbs up)*",
+          "start_time": 38.0,
+          "duration": 15.0,
+          "animation": {
+            "name": "luna_6",
+            "duration": 15.0,
+            "tracks": [
+              {
+                "name": "toothbrush.position",
+                "type": "number",
+                "times": [
+                  0.0,
+                  7.5,
+                  15.0
+                ],
+                "values": [
+                  60,
+                  30,
+                  60,
+                  45,
+                  60,
+                  30
+                ]
+              },
+              {
+                "name": "right_arm.rotation",
+                "type": "number",
+                "times": [
+                  0.0,
+                  7.5,
+                  15.0
+                ],
+                "values": [
+                  -45,
+                  -55,
+                  -45
+                ]
+              }
+            ]
+          },
+          "actions": {
+            "primary_action": "brushing",
+            "sub_actions": [
+              "brush_bottom_teeth"
+            ],
+            "body_parts": [],
+            "motion_type": "static",
+            "emotion": "neutral",
+            "duration_hint": "medium",
+            "props": [],
+            "mouth_sync": true,
+            "special_effects": []
+          }
+        },
+        {
+          "id": "luna_7",
+          "step": "**Top Teeth**",
+          "dialogue": "\"Now the top! Tickle tickle! You're doing AMAZING!\" *(Claps)*",
+          "start_time": 53.0,
+          "duration": 15.0,
+          "animation": {
+            "name": "luna_7",
+            "duration": 15.0,
+            "tracks": [
+              {
+                "name": "toothbrush.position",
+                "type": "number",
+                "times": [
+                  0.0,
+                  7.5,
+                  15.0
+                ],
+                "values": [
+                  60,
+                  70,
+                  60,
+                  85,
+                  60,
+                  70
+                ]
+              },
+              {
+                "name": "right_arm.rotation",
+                "type": "number",
+                "times": [
+                  0.0,
+                  7.5,
+                  15.0
+                ],
+                "values": [
+                  -45,
+                  -55,
+                  -45
+                ]
+              }
+            ]
+          },
+          "actions": {
+            "primary_action": "brushing",
+            "sub_actions": [
+              "brush_top_teeth"
+            ],
+            "body_parts": [],
+            "motion_type": "static",
+            "emotion": "neutral",
+            "duration_hint": "medium",
+            "props": [],
+            "mouth_sync": true,
+            "special_effects": []
+          }
+        },
+        {
+          "id": "luna_8",
+          "step": "**Front Teeth**",
+          "dialogue": "\"Big cheese smile! Round and round!\" *(Avatar smiles big)*",
+          "start_time": 68.0,
+          "duration": 15.0,
+          "animation": {
+            "name": "luna_8",
+            "duration": 15.0,
+            "tracks": [
+              {
+                "name": "body.scale",
+                "type": "number",
+                "times": [
+                  0.0,
+                  7.5,
+                  15.0
+                ],
+                "values": [
+                  1.0,
+                  1.02,
+                  1.0
+                ]
+              },
+              {
+                "name": "eyes.blink",
+                "type": "number",
+                "times": [
+                  0.0,
+                  6.75,
+                  7.5,
+                  8.25,
+                  15.0
+                ],
+                "values": [
+                  0,
+                  0,
+                  1,
+                  0,
+                  0
+                ]
+              }
+            ]
+          },
+          "actions": {
+            "primary_action": "idle",
+            "sub_actions": [],
+            "body_parts": [],
+            "motion_type": "static",
+            "emotion": "neutral",
+            "duration_hint": "medium",
+            "props": [],
+            "mouth_sync": true,
+            "special_effects": []
+          }
+        },
+        {
+          "id": "luna_9",
+          "step": "**Tongue**",
+          "dialogue": "\"Stick out your tongue! Brush it gently. Silly face!\"",
+          "start_time": 83.0,
+          "duration": 10.0,
+          "animation": {
+            "name": "luna_9",
+            "duration": 10.0,
+            "tracks": [
+              {
+                "name": "tongue.out",
+                "type": "number",
+                "times": [
+                  0.0,
+                  2.0,
+                  8.0,
+                  10.0
+                ],
+                "values": [
+                  0,
+                  1,
+                  1,
+                  0
+                ]
+              },
+              {
+                "name": "mouth.open",
+                "type": "number",
+                "times": [
+                  0.0,
+                  2.0,
+                  8.0,
+                  10.0
+                ],
+                "values": [
+                  0,
+                  0.5,
+                  0.5,
+                  0
+                ]
+              }
+            ]
+          },
+          "actions": {
+            "primary_action": "tongueOut",
+            "sub_actions": [
+              "brush_tongue"
+            ],
+            "body_parts": [],
+            "motion_type": "static",
+            "emotion": "neutral",
+            "duration_hint": "medium",
+            "props": [],
+            "mouth_sync": true,
+            "special_effects": []
+          }
+        },
+        {
+          "id": "luna_10",
+          "step": "**Spit**",
+          "dialogue": "\"Time for bubbles! Spit them alllll out!\"",
+          "start_time": 93.0,
+          "duration": 8.0,
+          "animation": {
+            "name": "luna_10",
+            "duration": 8.0,
+            "tracks": [
+              {
+                "name": "body.rotation",
+                "type": "number",
+                "times": [
+                  0.0,
+                  2.4,
+                  4.0,
+                  8.0
+                ],
+                "values": [
+                  0,
+                  20,
+                  25,
+                  0
+                ]
+              },
+              {
+                "name": "mouth.open",
+                "type": "number",
+                "times": [
+                  0.0,
+                  3.2,
+                  4.0,
+                  5.6,
+                  8.0
+                ],
+                "values": [
+                  0,
+                  "puff",
+                  0.3,
+                  "o",
+                  0.8,
+                  "o",
+                  0.2,
+                  "normal",
+                  0,
+                  "smile"
+                ]
+              }
+            ]
+          },
+          "actions": {
+            "primary_action": "spitting",
+            "sub_actions": [],
+            "body_parts": [
+              "mouth"
+            ],
+            "motion_type": "static",
+            "emotion": "neutral",
+            "duration_hint": "medium",
+            "props": [],
+            "mouth_sync": true,
+            "special_effects": []
+          }
+        },
+        {
+          "id": "luna_11",
+          "step": "**Rinse**",
+          "dialogue": "\"One more sip. Swish and spit! Almost done!\"",
+          "start_time": 101.0,
+          "duration": 8.0,
+          "animation": {
+            "name": "luna_11",
+            "duration": 8.0,
+            "tracks": [
+              {
+                "name": "mouth.puff",
+                "type": "number",
+                "times": [
+                  0.0,
+                  2.0,
+                  4.0,
+                  6.0,
+                  8.0
+                ],
+                "values": [
+                  0.8,
+                  -10,
+                  1.0,
+                  10,
+                  0.8,
+                  -10,
+                  1.0,
+                  10,
+                  0.8,
+                  -10
+                ]
+              }
+            ]
+          },
+          "actions": {
+            "primary_action": "swishing",
+            "sub_actions": [],
+            "body_parts": [
+              "cheeks",
+              "mouth"
+            ],
+            "motion_type": "static",
+            "emotion": "neutral",
+            "duration_hint": "medium",
+            "props": [],
+            "mouth_sync": true,
+            "special_effects": []
+          }
+        },
+        {
+          "id": "luna_12",
+          "step": "**Celebration**",
+          "dialogue": "\"HOORAY! Your teeth are SPARKLING! See you later, superstar! \ud83d\udc4d\"",
+          "start_time": 109.0,
+          "duration": 5.0,
+          "animation": {
+            "name": "luna_12",
+            "duration": 5.0,
+            "tracks": [
+              {
+                "name": "body.position",
+                "type": "number",
+                "times": [
+                  0.0,
+                  1.0,
+                  2.0,
+                  3.0,
+                  4.0,
+                  5.0
+                ],
+                "values": [
+                  0,
+                  -20,
+                  30,
+                  20,
+                  0,
+                  0
+                ]
+              },
+              {
+                "name": "left_arm.rotation",
+                "type": "number",
+                "times": [
+                  0.0,
+                  1.5,
+                  4.0,
+                  5.0
+                ],
+                "values": [
+                  -30,
+                  -150,
+                  -150,
+                  -30
+                ]
+              },
+              {
+                "name": "right_arm.rotation",
+                "type": "number",
+                "times": [
+                  0.0,
+                  1.5,
+                  4.0,
+                  5.0
+                ],
+                "values": [
+                  30,
+                  150,
+                  150,
+                  30
+                ]
+              },
+              {
+                "name": "mouth.smile",
+                "type": "number",
+                "times": [
+                  0.0,
+                  1.5,
+                  5.0
+                ],
+                "values": [
+                  0.5,
+                  1.0,
+                  1.0
+                ]
+              }
+            ]
+          },
+          "actions": {
+            "primary_action": "celebrate",
+            "sub_actions": [],
+            "body_parts": [],
+            "motion_type": "static",
+            "emotion": "neutral",
+            "duration_hint": "medium",
+            "props": [],
+            "mouth_sync": true,
+            "special_effects": [
+              "sparkles"
+            ]
+          }
+        }
+      ],
+      "total_duration": 114.0
+    },
+    "captain": {
+      "scenes": [
+        {
+          "id": "captain_1",
+          "step": "**Mission Briefing**",
+          "dialogue": "*Morning*: \"Good morning, Cadet! Time to defeat the Sugar Bugs!\" / *Late*: \"Cadet, you're late! The bugs are stronger. Let's GO!\"",
+          "start_time": 0,
+          "duration": 5.0,
+          "animation": {
+            "name": "captain_1",
+            "duration": 5.0,
+            "tracks": [
+              {
+                "name": "right_arm.rotation",
+                "type": "number",
+                "times": [
+                  0.0,
+                  1.0,
+                  1.75,
+                  2.5,
+                  3.25,
+                  4.0,
+                  5.0
+                ],
+                "values": [
+                  30,
+                  -120,
+                  -100,
+                  -120,
+                  -100,
+                  -120,
+                  30
+                ]
+              },
+              {
+                "name": "mouth.smile",
+                "type": "number",
+                "times": [
+                  0.0,
+                  1.0,
+                  4.5,
+                  5.0
+                ],
+                "values": [
+                  0.5,
+                  1.0,
+                  1.0,
+                  0.5
+                ]
+              }
+            ]
+          },
+          "actions": {
+            "primary_action": "greeting",
+            "sub_actions": [],
+            "body_parts": [],
+            "motion_type": "static",
+            "emotion": "happy",
+            "duration_hint": "medium",
+            "props": [],
+            "mouth_sync": true,
+            "special_effects": []
+          }
+        },
+        {
+          "id": "captain_2",
+          "step": "**Pre-Mission Rinse**",
+          "dialogue": "\"Rinse your mouth! Clear the battlefield!\" *(Avatar swishes)*",
+          "start_time": 5.0,
+          "duration": 8.0,
+          "animation": {
+            "name": "captain_2",
+            "duration": 8.0,
+            "tracks": [
+              {
+                "name": "left_arm.rotation",
+                "type": "number",
+                "times": [
+                  0.0,
+                  0.8,
+                  1.6,
+                  2.4,
+                  3.2,
+                  4.0,
+                  6.4,
+                  8.0
+                ],
+                "values": [
+                  -30,
+                  -60,
+                  -90,
+                  -120,
+                  -130,
+                  -90,
+                  -60,
+                  -30
+                ]
+              },
+              {
+                "name": "cup.visible",
+                "type": "number",
+                "times": [
+                  0.0,
+                  0.8,
+                  7.2,
+                  8.0
+                ],
+                "values": [
+                  0,
+                  1,
+                  1,
+                  0
+                ]
+              },
+              {
+                "name": "mouth.puff",
+                "type": "number",
+                "times": [
+                  0.0,
+                  2.8,
+                  3.2,
+                  4.0,
+                  4.8,
+                  5.6,
+                  6.4,
+                  8.0
+                ],
+                "values": [
+                  0,
+                  0,
+                  1,
+                  0.5,
+                  1,
+                  0.5,
+                  0,
+                  0
+                ]
+              },
+              {
+                "name": "head.rotation",
+                "type": "number",
+                "times": [
+                  0.0,
+                  2.8,
+                  4.0,
+                  6.4,
+                  8.0
+                ],
+                "values": [
+                  0,
+                  -15,
+                  0,
+                  20,
+                  0
+                ]
+              }
+            ]
+          },
+          "actions": {
+            "primary_action": "rinsing",
+            "sub_actions": [
+              "drink",
+              "swish",
+              "spit"
+            ],
+            "body_parts": [],
+            "motion_type": "static",
+            "emotion": "neutral",
+            "duration_hint": "medium",
+            "props": [],
+            "mouth_sync": true,
+            "special_effects": []
+          }
+        },
+        {
+          "id": "captain_3",
+          "step": "**Load Ammo**",
+          "dialogue": "\"Load the fluoride ammo! Pea-sized blast only. Too much slows you down!\"",
+          "start_time": 13.0,
+          "duration": 5.0,
+          "animation": {
+            "name": "captain_3",
+            "duration": 5.0,
+            "tracks": [
+              {
+                "name": "body.scale",
+                "type": "number",
+                "times": [
+                  0.0,
+                  2.5,
+                  5.0
+                ],
+                "values": [
+                  1.0,
+                  1.02,
+                  1.0
+                ]
+              },
+              {
+                "name": "eyes.blink",
+                "type": "number",
+                "times": [
+                  0.0,
+                  2.25,
+                  2.5,
+                  2.75,
+                  5.0
+                ],
+                "values": [
+                  0,
+                  0,
+                  1,
+                  0,
+                  0
+                ]
+              }
+            ]
+          },
+          "actions": {
+            "primary_action": "idle",
+            "sub_actions": [],
+            "body_parts": [],
+            "motion_type": "static",
+            "emotion": "neutral",
+            "duration_hint": "medium",
+            "props": [],
+            "mouth_sync": true,
+            "special_effects": []
+          }
+        },
+        {
+          "id": "captain_4",
+          "step": "**Lower Left**",
+          "dialogue": "\"ATTACK lower left molars! *Did you know?* Molars are the strongest teeth!\"",
+          "start_time": 18.0,
+          "duration": 20.0,
+          "animation": {
+            "name": "captain_4",
+            "duration": 20.0,
+            "tracks": [
+              {
+                "name": "toothbrush.position",
+                "type": "number",
+                "times": [
+                  0.0,
+                  10.0,
+                  20.0
+                ],
+                "values": [
+                  80,
+                  50,
+                  80,
+                  65,
+                  80,
+                  50
+                ]
+              },
+              {
+                "name": "right_arm.rotation",
+                "type": "number",
+                "times": [
+                  0.0,
+                  10.0,
+                  20.0
+                ],
+                "values": [
+                  -45,
+                  -55,
+                  -45
+                ]
+              }
+            ]
+          },
+          "actions": {
+            "primary_action": "brushing",
+            "sub_actions": [
+              "brush_molars"
+            ],
+            "body_parts": [],
+            "motion_type": "static",
+            "emotion": "neutral",
+            "duration_hint": "medium",
+            "props": [],
+            "mouth_sync": true,
+            "special_effects": []
+          }
+        },
+        {
+          "id": "captain_5",
+          "step": "**Lower Right**",
+          "dialogue": "\"Sweep to lower right! Don't let any bug escape! Great job, soldier!\"",
+          "start_time": 38.0,
+          "duration": 20.0,
+          "animation": {
+            "name": "captain_5",
+            "duration": 20.0,
+            "tracks": [
+              {
+                "name": "body.scale",
+                "type": "number",
+                "times": [
+                  0.0,
+                  10.0,
+                  20.0
+                ],
+                "values": [
+                  1.0,
+                  1.02,
+                  1.0
+                ]
+              },
+              {
+                "name": "eyes.blink",
+                "type": "number",
+                "times": [
+                  0.0,
+                  9.0,
+                  10.0,
+                  11.0,
+                  20.0
+                ],
+                "values": [
+                  0,
+                  0,
+                  1,
+                  0,
+                  0
+                ]
+              }
+            ]
+          },
+          "actions": {
+            "primary_action": "idle",
+            "sub_actions": [],
+            "body_parts": [],
+            "motion_type": "static",
+            "emotion": "neutral",
+            "duration_hint": "medium",
+            "props": [],
+            "mouth_sync": true,
+            "special_effects": []
+          }
+        },
+        {
+          "id": "captain_6",
+          "step": "**Upper Left**",
+          "dialogue": "\"Upper left sector! Angle your weapon 45 degrees! \ud83d\udcaa\"",
+          "start_time": 58.0,
+          "duration": 20.0,
+          "animation": {
+            "name": "captain_6",
+            "duration": 20.0,
+            "tracks": [
+              {
+                "name": "toothbrush.position",
+                "type": "number",
+                "times": [
+                  0.0,
+                  10.0,
+                  20.0
+                ],
+                "values": [
+                  60,
+                  50,
+                  60,
+                  65,
+                  60,
+                  50
+                ]
+              },
+              {
+                "name": "right_arm.rotation",
+                "type": "number",
+                "times": [
+                  0.0,
+                  10.0,
+                  20.0
+                ],
+                "values": [
+                  -45,
+                  -55,
+                  -45
+                ]
+              }
+            ]
+          },
+          "actions": {
+            "primary_action": "brushing",
+            "sub_actions": [],
+            "body_parts": [],
+            "motion_type": "angled",
+            "emotion": "neutral",
+            "duration_hint": "medium",
+            "props": [],
+            "mouth_sync": true,
+            "special_effects": []
+          }
+        },
+        {
+          "id": "captain_7",
+          "step": "**Upper Right**",
+          "dialogue": "\"Upper right! Almost there! *Fact*: Brushing twice daily fights 80% of cavities!\"",
+          "start_time": 78.0,
+          "duration": 20.0,
+          "animation": {
+            "name": "captain_7",
+            "duration": 20.0,
+            "tracks": [
+              {
+                "name": "body.scale",
+                "type": "number",
+                "times": [
+                  0.0,
+                  10.0,
+                  20.0
+                ],
+                "values": [
+                  1.0,
+                  1.02,
+                  1.0
+                ]
+              },
+              {
+                "name": "eyes.blink",
+                "type": "number",
+                "times": [
+                  0.0,
+                  9.0,
+                  10.0,
+                  11.0,
+                  20.0
+                ],
+                "values": [
+                  0,
+                  0,
+                  1,
+                  0,
+                  0
+                ]
+              }
+            ]
+          },
+          "actions": {
+            "primary_action": "idle",
+            "sub_actions": [],
+            "body_parts": [],
+            "motion_type": "static",
+            "emotion": "neutral",
+            "duration_hint": "medium",
+            "props": [],
+            "mouth_sync": true,
+            "special_effects": []
+          }
+        },
+        {
+          "id": "captain_8",
+          "step": "**Front Defense**",
+          "dialogue": "\"Front teeth shield! Circular defense formation!\"",
+          "start_time": 98.0,
+          "duration": 15.0,
+          "animation": {
+            "name": "captain_8",
+            "duration": 15.0,
+            "tracks": [
+              {
+                "name": "toothbrush.position",
+                "type": "number",
+                "times": [
+                  0.0,
+                  7.5,
+                  15.0
+                ],
+                "values": [
+                  40,
+                  50,
+                  40,
+                  65,
+                  40,
+                  50
+                ]
+              },
+              {
+                "name": "right_arm.rotation",
+                "type": "number",
+                "times": [
+                  0.0,
+                  7.5,
+                  15.0
+                ],
+                "values": [
+                  -45,
+                  -55,
+                  -45
+                ]
+              }
+            ]
+          },
+          "actions": {
+            "primary_action": "brushing",
+            "sub_actions": [
+              "brush_front_teeth"
+            ],
+            "body_parts": [],
+            "motion_type": "static",
+            "emotion": "neutral",
+            "duration_hint": "medium",
+            "props": [],
+            "mouth_sync": true,
+            "special_effects": []
+          }
+        },
+        {
+          "id": "captain_9",
+          "step": "**Tongue Dragon**",
+          "dialogue": "\"The Tongue Dragon hides bacteria! Brush it gently!\" *(Avatar sticks out tongue)*",
+          "start_time": 113.0,
+          "duration": 10.0,
+          "animation": {
+            "name": "captain_9",
+            "duration": 10.0,
+            "tracks": [
+              {
+                "name": "tongue.out",
+                "type": "number",
+                "times": [
+                  0.0,
+                  2.0,
+                  8.0,
+                  10.0
+                ],
+                "values": [
+                  0,
+                  1,
+                  1,
+                  0
+                ]
+              },
+              {
+                "name": "mouth.open",
+                "type": "number",
+                "times": [
+                  0.0,
+                  2.0,
+                  8.0,
+                  10.0
+                ],
+                "values": [
+                  0,
+                  0.5,
+                  0.5,
+                  0
+                ]
+              }
+            ]
+          },
+          "actions": {
+            "primary_action": "tongueOut",
+            "sub_actions": [
+              "brush_tongue"
+            ],
+            "body_parts": [],
+            "motion_type": "static",
+            "emotion": "neutral",
+            "duration_hint": "medium",
+            "props": [],
+            "mouth_sync": true,
+            "special_effects": []
+          }
+        },
+        {
+          "id": "captain_10",
+          "step": "**Spit Attack**",
+          "dialogue": "\"SPIT! Launch the foam missiles!\"",
+          "start_time": 123.0,
+          "duration": 5.0,
+          "animation": {
+            "name": "captain_10",
+            "duration": 5.0,
+            "tracks": [
+              {
+                "name": "body.rotation",
+                "type": "number",
+                "times": [
+                  0.0,
+                  1.5,
+                  2.5,
+                  5.0
+                ],
+                "values": [
+                  0,
+                  20,
+                  25,
+                  0
+                ]
+              },
+              {
+                "name": "mouth.open",
+                "type": "number",
+                "times": [
+                  0.0,
+                  2.0,
+                  2.5,
+                  3.5,
+                  5.0
+                ],
+                "values": [
+                  0,
+                  "puff",
+                  0.3,
+                  "o",
+                  0.8,
+                  "o",
+                  0.2,
+                  "normal",
+                  0,
+                  "smile"
+                ]
+              }
+            ]
+          },
+          "actions": {
+            "primary_action": "spitting",
+            "sub_actions": [],
+            "body_parts": [
+              "mouth"
+            ],
+            "motion_type": "static",
+            "emotion": "neutral",
+            "duration_hint": "medium",
+            "props": [],
+            "mouth_sync": true,
+            "special_effects": []
+          }
+        },
+        {
+          "id": "captain_11",
+          "step": "**Victory Rinse**",
+          "dialogue": "\"Final rinse! Wash away the defeated bugs!\"",
+          "start_time": 128.0,
+          "duration": 8.0,
+          "animation": {
+            "name": "captain_11",
+            "duration": 8.0,
+            "tracks": [
+              {
+                "name": "left_arm.rotation",
+                "type": "number",
+                "times": [
+                  0.0,
+                  0.8,
+                  1.6,
+                  2.4,
+                  3.2,
+                  4.0,
+                  6.4,
+                  8.0
+                ],
+                "values": [
+                  -30,
+                  -60,
+                  -90,
+                  -120,
+                  -130,
+                  -90,
+                  -60,
+                  -30
+                ]
+              },
+              {
+                "name": "cup.visible",
+                "type": "number",
+                "times": [
+                  0.0,
+                  0.8,
+                  7.2,
+                  8.0
+                ],
+                "values": [
+                  0,
+                  1,
+                  1,
+                  0
+                ]
+              },
+              {
+                "name": "mouth.puff",
+                "type": "number",
+                "times": [
+                  0.0,
+                  2.8,
+                  3.2,
+                  4.0,
+                  4.8,
+                  5.6,
+                  6.4,
+                  8.0
+                ],
+                "values": [
+                  0,
+                  0,
+                  1,
+                  0.5,
+                  1,
+                  0.5,
+                  0,
+                  0
+                ]
+              },
+              {
+                "name": "head.rotation",
+                "type": "number",
+                "times": [
+                  0.0,
+                  2.8,
+                  4.0,
+                  6.4,
+                  8.0
+                ],
+                "values": [
+                  0,
+                  -15,
+                  0,
+                  20,
+                  0
+                ]
+              }
+            ]
+          },
+          "actions": {
+            "primary_action": "rinsing",
+            "sub_actions": [
+              "drink",
+              "swish",
+              "spit"
+            ],
+            "body_parts": [],
+            "motion_type": "static",
+            "emotion": "neutral",
+            "duration_hint": "medium",
+            "props": [],
+            "mouth_sync": true,
+            "special_effects": []
+          }
+        },
+        {
+          "id": "captain_12",
+          "step": "**Mission Complete**",
+          "dialogue": "\"MISSION ACCOMPLISHED! You're a Dental Defender! See you tonight! \ud83d\udc4d\"",
+          "start_time": 136.0,
+          "duration": 5.0,
+          "animation": {
+            "name": "captain_12",
+            "duration": 5.0,
+            "tracks": [
+              {
+                "name": "right_arm.rotation",
+                "type": "number",
+                "times": [
+                  0.0,
+                  1.0,
+                  1.75,
+                  2.5,
+                  3.25,
+                  4.0,
+                  5.0
+                ],
+                "values": [
+                  30,
+                  -120,
+                  -100,
+                  -120,
+                  -100,
+                  -120,
+                  30
+                ]
+              },
+              {
+                "name": "mouth.smile",
+                "type": "number",
+                "times": [
+                  0.0,
+                  1.0,
+                  4.5,
+                  5.0
+                ],
+                "values": [
+                  0.5,
+                  1.0,
+                  1.0,
+                  0.5
+                ]
+              }
+            ]
+          },
+          "actions": {
+            "primary_action": "greeting",
+            "sub_actions": [],
+            "body_parts": [],
+            "motion_type": "static",
+            "emotion": "calm",
+            "duration_hint": "medium",
+            "props": [],
+            "mouth_sync": true,
+            "special_effects": []
+          }
+        }
+      ],
+      "total_duration": 141.0
+    },
+    "dr_bright": {
+      "scenes": [
+        {
+          "id": "dr_bright_1",
+          "step": "**Protocol Start**",
+          "dialogue": "*Morning*: \"Good morning. Optimal brushing time is after breakfast.\" / *Late PM*: \"You're brushing later than usual. Consistency improves efficacy.\"",
+          "start_time": 0,
+          "duration": 5.0,
+          "animation": {
+            "name": "dr_bright_1",
+            "duration": 5.0,
+            "tracks": [
+              {
+                "name": "right_arm.rotation",
+                "type": "number",
+                "times": [
+                  0.0,
+                  1.0,
+                  1.75,
+                  2.5,
+                  3.25,
+                  4.0,
+                  5.0
+                ],
+                "values": [
+                  30,
+                  -120,
+                  -100,
+                  -120,
+                  -100,
+                  -120,
+                  30
+                ]
+              },
+              {
+                "name": "mouth.smile",
+                "type": "number",
+                "times": [
+                  0.0,
+                  1.0,
+                  4.5,
+                  5.0
+                ],
+                "values": [
+                  0.5,
+                  1.0,
+                  1.0,
+                  0.5
+                ]
+              }
+            ]
+          },
+          "actions": {
+            "primary_action": "greeting",
+            "sub_actions": [],
+            "body_parts": [],
+            "motion_type": "static",
+            "emotion": "happy",
+            "duration_hint": "medium",
+            "props": [],
+            "mouth_sync": true,
+            "special_effects": []
+          }
+        },
+        {
+          "id": "dr_bright_2",
+          "step": "**Initial Rinse**",
+          "dialogue": "\"Begin with a water rinse to remove loose debris.\" *(Avatar rinses)*",
+          "start_time": 5.0,
+          "duration": 8.0,
+          "animation": {
+            "name": "dr_bright_2",
+            "duration": 8.0,
+            "tracks": [
+              {
+                "name": "left_arm.rotation",
+                "type": "number",
+                "times": [
+                  0.0,
+                  0.8,
+                  1.6,
+                  2.4,
+                  3.2,
+                  4.0,
+                  6.4,
+                  8.0
+                ],
+                "values": [
+                  -30,
+                  -60,
+                  -90,
+                  -120,
+                  -130,
+                  -90,
+                  -60,
+                  -30
+                ]
+              },
+              {
+                "name": "cup.visible",
+                "type": "number",
+                "times": [
+                  0.0,
+                  0.8,
+                  7.2,
+                  8.0
+                ],
+                "values": [
+                  0,
+                  1,
+                  1,
+                  0
+                ]
+              },
+              {
+                "name": "mouth.puff",
+                "type": "number",
+                "times": [
+                  0.0,
+                  2.8,
+                  3.2,
+                  4.0,
+                  4.8,
+                  5.6,
+                  6.4,
+                  8.0
+                ],
+                "values": [
+                  0,
+                  0,
+                  1,
+                  0.5,
+                  1,
+                  0.5,
+                  0,
+                  0
+                ]
+              },
+              {
+                "name": "head.rotation",
+                "type": "number",
+                "times": [
+                  0.0,
+                  2.8,
+                  4.0,
+                  6.4,
+                  8.0
+                ],
+                "values": [
+                  0,
+                  -15,
+                  0,
+                  20,
+                  0
+                ]
+              }
+            ]
+          },
+          "actions": {
+            "primary_action": "rinsing",
+            "sub_actions": [
+              "drink",
+              "swish",
+              "spit"
+            ],
+            "body_parts": [],
+            "motion_type": "static",
+            "emotion": "neutral",
+            "duration_hint": "medium",
+            "props": [],
+            "mouth_sync": true,
+            "special_effects": []
+          }
+        },
+        {
+          "id": "dr_bright_3",
+          "step": "**Apply Fluoride**",
+          "dialogue": "\"Apply a pea-sized amount of fluoride toothpaste. Avoid wetting the brush excessively.\"",
+          "start_time": 13.0,
+          "duration": 5.0,
+          "animation": {
+            "name": "dr_bright_3",
+            "duration": 5.0,
+            "tracks": [
+              {
+                "name": "right_arm.rotation",
+                "type": "number",
+                "times": [
+                  0.0,
+                  1.0,
+                  4.0,
+                  5.0
+                ],
+                "values": [
+                  30,
+                  0,
+                  0,
+                  30
+                ]
+              },
+              {
+                "name": "left_arm.rotation",
+                "type": "number",
+                "times": [
+                  0.0,
+                  1.0,
+                  2.0,
+                  3.0,
+                  4.0,
+                  5.0
+                ],
+                "values": [
+                  -30,
+                  -20,
+                  -10,
+                  -15,
+                  -30,
+                  -30
+                ]
+              },
+              {
+                "name": "paste_blob.scale",
+                "type": "number",
+                "times": [
+                  0.0,
+                  1.5,
+                  2.5,
+                  3.5,
+                  5.0
+                ],
+                "values": [
+                  0,
+                  0,
+                  0.5,
+                  1,
+                  1
+                ]
+              }
+            ]
+          },
+          "actions": {
+            "primary_action": "applying_paste",
+            "sub_actions": [],
+            "body_parts": [],
+            "motion_type": "static",
+            "emotion": "neutral",
+            "duration_hint": "medium",
+            "props": [
+              "toothpaste",
+              "toothbrush"
+            ],
+            "mouth_sync": true,
+            "special_effects": []
+          }
+        },
+        {
+          "id": "dr_bright_4",
+          "step": "**Lower Outer**",
+          "dialogue": "\"Lower arch, outer surfaces. 45-degree angle to gums. Short strokes.\" *Tip*: Consistent brushing prevents cavities and gum disease.\"",
+          "start_time": 18.0,
+          "duration": 25.0,
+          "animation": {
+            "name": "dr_bright_4",
+            "duration": 25.0,
+            "tracks": [
+              {
+                "name": "toothbrush.position",
+                "type": "number",
+                "times": [
+                  0.0,
+                  12.5,
+                  25.0
+                ],
+                "values": [
+                  60,
+                  50,
+                  60,
+                  65,
+                  60,
+                  50
+                ]
+              },
+              {
+                "name": "right_arm.rotation",
+                "type": "number",
+                "times": [
+                  0.0,
+                  12.5,
+                  25.0
+                ],
+                "values": [
+                  -45,
+                  -55,
+                  -45
+                ]
+              }
+            ]
+          },
+          "actions": {
+            "primary_action": "brushing",
+            "sub_actions": [],
+            "body_parts": [],
+            "motion_type": "angled",
+            "emotion": "neutral",
+            "duration_hint": "medium",
+            "props": [],
+            "mouth_sync": true,
+            "special_effects": []
+          }
+        },
+        {
+          "id": "dr_bright_5",
+          "step": "**Upper Outer**",
+          "dialogue": "\"Upper arch, outer surfaces. Maintain gentle pressure. Excellent technique.\"",
+          "start_time": 43.0,
+          "duration": 25.0,
+          "animation": {
+            "name": "dr_bright_5",
+            "duration": 25.0,
+            "tracks": [
+              {
+                "name": "body.scale",
+                "type": "number",
+                "times": [
+                  0.0,
+                  12.5,
+                  25.0
+                ],
+                "values": [
+                  1.0,
+                  1.02,
+                  1.0
+                ]
+              },
+              {
+                "name": "eyes.blink",
+                "type": "number",
+                "times": [
+                  0.0,
+                  11.25,
+                  12.5,
+                  13.750000000000002,
+                  25.0
+                ],
+                "values": [
+                  0,
+                  0,
+                  1,
+                  0,
+                  0
+                ]
+              }
+            ]
+          },
+          "actions": {
+            "primary_action": "idle",
+            "sub_actions": [],
+            "body_parts": [],
+            "motion_type": "static",
+            "emotion": "neutral",
+            "duration_hint": "medium",
+            "props": [],
+            "mouth_sync": true,
+            "special_effects": []
+          }
+        },
+        {
+          "id": "dr_bright_6",
+          "step": "**Inner Surfaces**",
+          "dialogue": "\"Inner surfaces. Tilt brush vertically for anterior teeth. *Fact*: 90% of cavities occur on inner surfaces.\"",
+          "start_time": 68.0,
+          "duration": 25.0,
+          "animation": {
+            "name": "dr_bright_6",
+            "duration": 25.0,
+            "tracks": [
+              {
+                "name": "body.scale",
+                "type": "number",
+                "times": [
+                  0.0,
+                  12.5,
+                  25.0
+                ],
+                "values": [
+                  1.0,
+                  1.02,
+                  1.0
+                ]
+              },
+              {
+                "name": "eyes.blink",
+                "type": "number",
+                "times": [
+                  0.0,
+                  11.25,
+                  12.5,
+                  13.750000000000002,
+                  25.0
+                ],
+                "values": [
+                  0,
+                  0,
+                  1,
+                  0,
+                  0
+                ]
+              }
+            ]
+          },
+          "actions": {
+            "primary_action": "idle",
+            "sub_actions": [],
+            "body_parts": [],
+            "motion_type": "static",
+            "emotion": "neutral",
+            "duration_hint": "medium",
+            "props": [],
+            "mouth_sync": true,
+            "special_effects": []
+          }
+        },
+        {
+          "id": "dr_bright_7",
+          "step": "**Chewing**",
+          "dialogue": "\"Chewing surfaces. Horizontal scrubbing motion. Well done.\" *(Thumbs up)*",
+          "start_time": 93.0,
+          "duration": 20.0,
+          "animation": {
+            "name": "dr_bright_7",
+            "duration": 20.0,
+            "tracks": [
+              {
+                "name": "body.scale",
+                "type": "number",
+                "times": [
+                  0.0,
+                  10.0,
+                  20.0
+                ],
+                "values": [
+                  1.0,
+                  1.02,
+                  1.0
+                ]
+              },
+              {
+                "name": "eyes.blink",
+                "type": "number",
+                "times": [
+                  0.0,
+                  9.0,
+                  10.0,
+                  11.0,
+                  20.0
+                ],
+                "values": [
+                  0,
+                  0,
+                  1,
+                  0,
+                  0
+                ]
+              }
+            ]
+          },
+          "actions": {
+            "primary_action": "idle",
+            "sub_actions": [],
+            "body_parts": [],
+            "motion_type": "static",
+            "emotion": "neutral",
+            "duration_hint": "medium",
+            "props": [],
+            "mouth_sync": true,
+            "special_effects": []
+          }
+        },
+        {
+          "id": "dr_bright_8",
+          "step": "**Tongue**",
+          "dialogue": "\"Tongue bacteria contribute to halitosis. Brush gently from back to front.\"",
+          "start_time": 113.0,
+          "duration": 10.0,
+          "animation": {
+            "name": "dr_bright_8",
+            "duration": 10.0,
+            "tracks": [
+              {
+                "name": "toothbrush.position",
+                "type": "number",
+                "times": [
+                  0.0,
+                  5.0,
+                  10.0
+                ],
+                "values": [
+                  40,
+                  50,
+                  40,
+                  65,
+                  40,
+                  50
+                ]
+              },
+              {
+                "name": "right_arm.rotation",
+                "type": "number",
+                "times": [
+                  0.0,
+                  5.0,
+                  10.0
+                ],
+                "values": [
+                  -45,
+                  -55,
+                  -45
+                ]
+              }
+            ]
+          },
+          "actions": {
+            "primary_action": "brushing",
+            "sub_actions": [
+              "brush_front_teeth"
+            ],
+            "body_parts": [],
+            "motion_type": "static",
+            "emotion": "neutral",
+            "duration_hint": "medium",
+            "props": [],
+            "mouth_sync": true,
+            "special_effects": []
+          }
+        },
+        {
+          "id": "dr_bright_9",
+          "step": "**Expectorate**",
+          "dialogue": "\"Expectorate. Avoid rinsing immediately\u2014fluoride continues working for 30 minutes.\"",
+          "start_time": 123.0,
+          "duration": 5.0,
+          "animation": {
+            "name": "dr_bright_9",
+            "duration": 5.0,
+            "tracks": [
+              {
+                "name": "body.scale",
+                "type": "number",
+                "times": [
+                  0.0,
+                  2.5,
+                  5.0
+                ],
+                "values": [
+                  1.0,
+                  1.02,
+                  1.0
+                ]
+              },
+              {
+                "name": "eyes.blink",
+                "type": "number",
+                "times": [
+                  0.0,
+                  2.25,
+                  2.5,
+                  2.75,
+                  5.0
+                ],
+                "values": [
+                  0,
+                  0,
+                  1,
+                  0,
+                  0
+                ]
+              }
+            ]
+          },
+          "actions": {
+            "primary_action": "idle",
+            "sub_actions": [],
+            "body_parts": [],
+            "motion_type": "static",
+            "emotion": "neutral",
+            "duration_hint": "medium",
+            "props": [],
+            "mouth_sync": true,
+            "special_effects": []
+          }
+        },
+        {
+          "id": "dr_bright_10",
+          "step": "**Final Rinse**",
+          "dialogue": "\"Light rinse to clear excess. Your enamel thanks you.\"",
+          "start_time": 128.0,
+          "duration": 8.0,
+          "animation": {
+            "name": "dr_bright_10",
+            "duration": 8.0,
+            "tracks": [
+              {
+                "name": "left_arm.rotation",
+                "type": "number",
+                "times": [
+                  0.0,
+                  0.8,
+                  1.6,
+                  2.4,
+                  3.2,
+                  4.0,
+                  6.4,
+                  8.0
+                ],
+                "values": [
+                  -30,
+                  -60,
+                  -90,
+                  -120,
+                  -130,
+                  -90,
+                  -60,
+                  -30
+                ]
+              },
+              {
+                "name": "cup.visible",
+                "type": "number",
+                "times": [
+                  0.0,
+                  0.8,
+                  7.2,
+                  8.0
+                ],
+                "values": [
+                  0,
+                  1,
+                  1,
+                  0
+                ]
+              },
+              {
+                "name": "mouth.puff",
+                "type": "number",
+                "times": [
+                  0.0,
+                  2.8,
+                  3.2,
+                  4.0,
+                  4.8,
+                  5.6,
+                  6.4,
+                  8.0
+                ],
+                "values": [
+                  0,
+                  0,
+                  1,
+                  0.5,
+                  1,
+                  0.5,
+                  0,
+                  0
+                ]
+              },
+              {
+                "name": "head.rotation",
+                "type": "number",
+                "times": [
+                  0.0,
+                  2.8,
+                  4.0,
+                  6.4,
+                  8.0
+                ],
+                "values": [
+                  0,
+                  -15,
+                  0,
+                  20,
+                  0
+                ]
+              }
+            ]
+          },
+          "actions": {
+            "primary_action": "rinsing",
+            "sub_actions": [
+              "drink",
+              "swish",
+              "spit"
+            ],
+            "body_parts": [],
+            "motion_type": "static",
+            "emotion": "neutral",
+            "duration_hint": "medium",
+            "props": [],
+            "mouth_sync": true,
+            "special_effects": []
+          }
+        },
+        {
+          "id": "dr_bright_11",
+          "step": "**Complete**",
+          "dialogue": "\"Protocol complete. Enamel integrity maintained. See you tonight. \ud83d\udc4d\"",
+          "start_time": 136.0,
+          "duration": 5.0,
+          "animation": {
+            "name": "dr_bright_11",
+            "duration": 5.0,
+            "tracks": [
+              {
+                "name": "right_arm.rotation",
+                "type": "number",
+                "times": [
+                  0.0,
+                  1.0,
+                  1.75,
+                  2.5,
+                  3.25,
+                  4.0,
+                  5.0
+                ],
+                "values": [
+                  30,
+                  -120,
+                  -100,
+                  -120,
+                  -100,
+                  -120,
+                  30
+                ]
+              },
+              {
+                "name": "mouth.smile",
+                "type": "number",
+                "times": [
+                  0.0,
+                  1.0,
+                  4.5,
+                  5.0
+                ],
+                "values": [
+                  0.5,
+                  1.0,
+                  1.0,
+                  0.5
+                ]
+              }
+            ]
+          },
+          "actions": {
+            "primary_action": "greeting",
+            "sub_actions": [],
+            "body_parts": [],
+            "motion_type": "static",
+            "emotion": "calm",
+            "duration_hint": "medium",
+            "props": [],
+            "mouth_sync": true,
+            "special_effects": []
+          }
+        }
+      ],
+      "total_duration": 141.0
+    }
+  },
+  "total_duration": 0
+}
