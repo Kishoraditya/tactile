@@ -6,7 +6,7 @@ An accessible, audio-first tooth brushing guide for children of all ages, includ
 
 - **Three Age-Appropriate Characters**: Luna (1-4), Captain Sparkle (5-11), Dr. Bright (12-18)
 - **Voice Control**: Say "Start", "Pause", "Resume", or "Skip" 
-- **Time-Aware Greetings**: Morning/evening-specific messages
+- **Bilingual**: Full English and Marathi support
 - **3D Animated Avatar**: Expressive face with teeth, tongue, and mouth animations
 - **Procedural Music**: Unique background music per character
 - **Educational Sidebar**: Videos, hygiene tips, and emergency contacts
@@ -16,13 +16,23 @@ An accessible, audio-first tooth brushing guide for children of all ages, includ
 
 - **Frontend**: Next.js 15, React, TypeScript, Tailwind CSS
 - **3D Graphics**: React Three Fiber, Three.js
-- **Audio**: Web Speech API (TTS & Recognition), Tone.js
+- **TTS**: ElevenLabs API (Multilingual v2)
+- **STT**: Browser Speech Recognition API
 - **Backend**: FastAPI (Python), SQLite
-- **Deployment**: Vercel (frontend), Railway/Fly.io (backend)
+- **Audio**: Tone.js (procedural music)
 
-## Quick Start with Docker (Recommended)
+## Quick Start
 
-Run the entire application with a single command:
+### 1. Environment Setup
+
+Copy the template and add your API keys:
+
+```bash
+cp env.example .env
+# Edit .env with your ELEVENLABS_API_KEY and voice IDs
+```
+
+### 2. Run with Docker (Recommended)
 
 ```bash
 docker-compose up --build
@@ -31,87 +41,35 @@ docker-compose up --build
 - Frontend: [http://localhost:3000](http://localhost:3000)
 - Backend API: [http://localhost:8000](http://localhost:8000)
 
-To run in background:
-```bash
-docker-compose up -d --build
-```
+### 3. Manual Setup
 
-To stop:
-```bash
-docker-compose down
-```
-
-## Manual Setup
-
-### Frontend
-
-
+**Frontend:**
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000)
-
-### Backend
-
+**Backend:**
 ```bash
 cd backend
 pip install -r requirements.txt
 uvicorn app.main:app --reload
 ```
 
-API available at [http://localhost:8000](http://localhost:8000)
+## Environment Variables
 
-## Deployment
+| Variable | Description |
+|----------|-------------|
+| `ELEVENLABS_API_KEY` | Your ElevenLabs API key |
+| `VOICE_LUNA_EN` | Voice ID for Luna (English) |
+| `VOICE_LUNA_MR` | Voice ID for Luna (Marathi) |
+| `VOICE_CAPTAIN_EN` | Voice ID for Captain (English) |
+| `VOICE_CAPTAIN_MR` | Voice ID for Captain (Marathi) |
+| `VOICE_DRBRIGHT_EN` | Voice ID for Dr. Bright (English) |
+| `VOICE_DRBRIGHT_MR` | Voice ID for Dr. Bright (Marathi) |
 
-### Option 1: Vercel (Frontend Only - Recommended)
-
-1. Push your code to GitHub
-2. Go to [vercel.com](https://vercel.com) and import your repo
-3. Set root directory to `frontend`
-4. Deploy!
-
-```bash
-# Or use Vercel CLI
-cd frontend
-npx vercel --prod
-```
-
-### Option 2: Railway (Full Stack)
-
-1. Create account at [railway.app](https://railway.app)
-2. Create new project from GitHub repo
-3. Add two services:
-   - **Frontend**: Set root to `frontend`, build command `npm run build`
-   - **Backend**: Set root to `backend`, start command `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
-
-### Option 3: Fly.io (Backend)
-
-```bash
-# Install flyctl
-cd backend
-
-# Create fly.toml
-fly launch --name toothbuddy-api
-
-# Deploy
-fly deploy
-```
-
-### Environment Variables
-
-For production, set these in your deployment platform:
-
-```env
-# Frontend (.env.local)
-NEXT_PUBLIC_API_URL=https://your-backend-url.railway.app
-
-# Backend
-DATABASE_URL=sqlite:///./toothbuddy.db
-SECRET_KEY=your-secret-key
-```
+See `env.example` for defaults.
 
 ## Project Structure
 
@@ -123,18 +81,18 @@ tactile/
 │   └── lib/           # Services (TTS, Music, Data)
 ├── backend/           # FastAPI server
 │   └── app/           # Routes, models, schemas
-└── docs/              # Documentation & storyboards
+└── docs/              # Storyboards & scripts
 ```
 
-## Voice Commands
+## Voice Commands 🗣️
 
-| Command | Action |
-|---------|--------|
-| "Start" / "Begin" | Start brushing session |
-| "Pause" / "Stop" | Pause current session |
-| "Resume" / "Continue" | Resume paused session |
-| "Skip" / "Next" | Skip to next step |
-| "Luna" / "Captain" / "Doctor" | Select character on dashboard |
+| Action | English | Marathi (मराठी) |
+|--------|---------|-----------------|
+| **Start** | "Start", "Begin" | "सुरू करा", "चालू करा" |
+| **Pause** | "Pause", "Stop" | "थांबा", "थांब" |
+| **Resume** | "Resume" | "पुढे चालू करा", "परत" |
+| **Skip** | "Skip", "Next" | "वगळा", "पुढचे" |
+| **Select Avatar** | "Luna", "Captain", "Doctor" | "चंदा / परी", "कॅप्टन", "डॉक्टर" |
 
 ## License
 
