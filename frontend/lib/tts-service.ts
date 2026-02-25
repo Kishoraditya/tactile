@@ -36,10 +36,13 @@ export class TtsService {
     private manifestLoading: Promise<void> | null = null;
 
     constructor() {
-        this.loadManifest();
+        if (typeof window !== 'undefined') {
+            this.loadManifest();
+        }
     }
 
     private async loadManifest() {
+        if (typeof window === 'undefined') return;
         if (this.manifestLoading) return this.manifestLoading;
 
         this.manifestLoading = (async () => {

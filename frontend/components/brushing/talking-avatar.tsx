@@ -16,7 +16,7 @@ export function TalkingAvatar({ isSpeaking, avatarId }: TalkingAvatarProps) {
             transition: {
                 repeat: Infinity,
                 duration: 0.4,
-                ease: "linear"
+                ease: "linear" as const
             }
         }
     };
