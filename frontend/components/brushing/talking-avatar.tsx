@@ -9,20 +9,19 @@ interface TalkingAvatarProps {
 }
 
 export function TalkingAvatar({ isSpeaking, avatarId }: TalkingAvatarProps) {
-    const mouthVariants: Variants = {
+    const mouthVariants: any = {
         idle: { scaleY: 0.1, transition: { duration: 0.5 } },
         speaking: {
             scaleY: [0.1, 0.8, 0.2, 0.6, 0.1],
             transition: {
                 repeat: Infinity,
                 duration: 0.4,
-                ease: "linear" as const
+                ease: "linear"
             }
         }
     };
 
-
-    const blinkVariants = {
+    const blinkVariants: any = {
         open: { scaleY: 1 },
         closed: { scaleY: 0.1 }
     };
