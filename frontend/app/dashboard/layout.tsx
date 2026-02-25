@@ -16,9 +16,6 @@ export default function DashboardLayout({
                     <Link href="/dashboard/settings" className="p-2 rounded-full hover:bg-slate-100" aria-label="Settings">
                         <Settings className="w-6 h-6" />
                     </Link>
-                    <Link href="/dashboard/profile" className="p-2 rounded-full hover:bg-slate-100" aria-label="Child Profile">
-                        <User className="w-6 h-6" />
-                    </Link>
                 </div>
             </header>
             <main className="flex-1 p-4 md:p-8">

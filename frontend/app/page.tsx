@@ -46,7 +46,10 @@ export default function Home() {
     setShowLanguageSelect(false);
 
     // Speak welcome in selected language
-    tts.playUI("welcome", selectedLang);
+    tts.playUI("welcome", selectedLang).then(() => {
+      // Prompt to tap to start after welcome
+      tts.playUI("tap_to_start", selectedLang);
+    });
   };
 
   const playWelcomeAudio = () => {
