@@ -32,6 +32,35 @@ export class TtsService {
     private audio: HTMLAudioElement | null = null;
     private currentCharacter: Character = 'luna';
     private prerecordedEnabled: boolean = true;
+    private manifest: Record<string, string> | null = null;
+    private manifestLoading: Promise<void> | null = null;
+
+    constructor() {
+        this.loadManifest();
+    }
+
+    private async loadManifest() {
+        if (this.manifestLoading) return this.manifestLoading;
+
+        this.manifestLoading = (async () => {
+            try {
+                const response = await fetch('/audio/manifest.json');
+                if (response.ok) {
+                    this.manifest = await response.json();
+                    console.log(`Loaded audio manifest: ${Object.keys(this.manifest!).length} files`);
+                }
+            } catch (e) {
+                console.warn("Could not load audio manifest", e);
+                this.manifest = {};
+            }
+        })();
+
+        return this.manifestLoading;
+    }
+
+    private async ensureManifest() {
+        if (!this.manifest) await this.loadManifest();
+    }
 
     /**
      * Set the current character for voice selection.
@@ -141,7 +170,10 @@ export class TtsService {
                 const playPromise = this.audio.play();
                 if (playPromise !== undefined) {
                     playPromise.catch(e => {
-                        console.error("Autoplay blocked", e);
+                        if (e.name !== 'AbortError') {
+                            console.error("Audio playback error", e);
+                        }
+                        URL.revokeObjectURL(url);
                         resolve();
                     });
                 }
@@ -157,6 +189,34 @@ export class TtsService {
     private async playAudioFile(path: string): Promise<void> {
         this.cancel();
 
+        await this.ensureManifest();
+
+        // Check if file exists in manifest to avoid 404s
+        // Note: The manifest uses keys like 'welcome_en', 'step_0_mr'
+        // We'll construct a key from the path or use a lookup
+        const isMarathi = path.includes('/audio/mr/');
+        const lang = isMarathi ? 'mr' : 'en';
+
+        // Simple heuristic to get key from path
+        // e.g. /audio/en/ui/welcome.mp3 -> welcome_en
+        // e.g. /audio/en/1-4/step_0.mp3 -> step_0_en
+        const parts = path.split('/');
+        const filename = parts[parts.length - 1].replace('.mp3', '');
+        const key = `${filename}_${lang}`;
+
+        if (this.manifest && !this.manifest[key]) {
+            if (isMarathi) {
+                const enPath = path.replace('/audio/mr/', '/audio/en/');
+                const enKey = `${filename}_en`;
+                if (this.manifest[enKey]) {
+                    console.log(`Marathi audio missing for ${key}, falling back to English: ${enPath}`);
+                    return this.playAudioFile(enPath);
+                }
+            }
+            console.warn(`Audio ${key} not in manifest, skipping to avoid 404`);
+            return Promise.resolve();
+        }
+
         console.log(`Playing pre-recorded: ${path}`);
 
         return new Promise((resolve) => {
@@ -164,14 +224,18 @@ export class TtsService {
 
             this.audio.onended = () => resolve();
             this.audio.onerror = (e) => {
-                console.warn(`Pre-recorded audio not found: ${path}`);
+                // If it's a 404, we expect this for Marathi sometimes, just resolve silently
+                console.warn(`Audio check: ${path} not found.`);
                 resolve();
             };
 
             const playPromise = this.audio.play();
             if (playPromise !== undefined) {
                 playPromise.catch(e => {
-                    console.error("Autoplay blocked", e);
+                    // Ignore AbortError as it's intended when we call cancel()
+                    if (e.name !== 'AbortError') {
+                        console.warn(`Playback failed for ${path}: ${e.message}`);
+                    }
                     resolve();
                 });
             }

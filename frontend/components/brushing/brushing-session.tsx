@@ -15,10 +15,6 @@ import { Avatar3D } from './avatar-3d';
 import { music } from '@/lib/music-service';
 import { useLanguage } from '@/lib/i18n';
 
-// Strip emojis from text for TTS
-function stripEmojis(text: string): string {
-    return text.replace(/[\u{1F600}-\u{1F64F}]|[\u{1F300}-\u{1F5FF}]|[\u{1F680}-\u{1F6FF}]|[\u{1F1E0}-\u{1F1FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]|[\u{1F900}-\u{1F9FF}]|[\u{1FA00}-\u{1FA6F}]|[\u{1FA70}-\u{1FAFF}]/gu, '').trim();
-}
 
 export function BrushingSession({ ageGroup, onComplete }: { ageGroup: AgeGroup; onComplete: () => void }) {
     const { lang, t } = useLanguage();
@@ -74,19 +70,6 @@ export function BrushingSession({ ageGroup, onComplete }: { ageGroup: AgeGroup; 
             tts.playGreeting(lang);
         }
     }, [avatar, lang]);
-
-    // Helper function to speak with awaiting
-    const speak = useCallback(async (text: string): Promise<void> => {
-        if (!isMountedRef.current) return;
-        isSpeakingRef.current = true;
-        setIsAvatarSpeaking(true);
-        const cleanText = stripEmojis(text);
-        await tts.speak(cleanText, lang); // Pass language explicitly
-        if (isMountedRef.current) {
-            isSpeakingRef.current = false;
-            setIsAvatarSpeaking(false);
-        }
-    }, [lang]); // sound depends on lang
 
     // Clear and stop timer
     const stopTimer = useCallback(() => {
@@ -168,7 +151,7 @@ export function BrushingSession({ ageGroup, onComplete }: { ageGroup: AgeGroup; 
                 }
             }, 1000);
         }
-    }, [steps, speak, stopTimer, finishSession, lang]);
+    }, [steps, stopTimer, finishSession, lang]);
 
     // Toggle pause/resume
     const togglePause = useCallback(() => {
@@ -183,16 +166,15 @@ export function BrushingSession({ ageGroup, onComplete }: { ageGroup: AgeGroup; 
             // If there's time left on current step, restart timer
             const step = steps[currentStepIndexRef.current];
             if (step && step.duration > 0) {
-                // Restart the timer from where we left off
-                const messageToSpeak = lang === 'mr' && step.message_mr ? step.message_mr : step.message;
-                speak(messageToSpeak).then(() => {
+                // Play step audio again on resume
+                setIsAvatarSpeaking(true);
+                tts.playStep(currentStepIndexRef.current, lang).then(() => {
+                    if (isMountedRef.current) setIsAvatarSpeaking(false);
                     if (!isMountedRef.current || !isPlayingRef.current) return;
-                    // Timer will be handled by the next step call pattern
-                    // For now, just resume with remaining time
                 });
             }
         }
-    }, [steps, speak, stopTimer, lang]);
+    }, [steps, stopTimer, lang]);
 
     // Start session (using pre-recorded welcome audio)
     const startSession = useCallback(async () => {

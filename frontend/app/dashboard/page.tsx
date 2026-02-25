@@ -25,10 +25,11 @@ export default function DashboardPage() {
 
         // Welcome message only once per mount
         if (!hasSpokenWelcomeRef.current) {
-            const welcomeText = lang === 'mr'
-                ? "आज कोण दात घासणार? तुमचा मित्र निवडा, किंवा त्यांचे नाव सांगा."
-                : "Who is brushing today? Tap a buddy or say their name.";
-            tts.speak(welcomeText, lang);
+            const speakWelcome = async () => {
+                await tts.playUI('who_brushing', lang);
+                await tts.playUI('select_buddy', lang);
+            };
+            speakWelcome().catch(console.error);
             hasSpokenWelcomeRef.current = true;
         }
 
